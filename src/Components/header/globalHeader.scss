@@ -22,7 +22,7 @@ $grid-breakpoints: (
     }
 }
 
-@include media-breakpoint-down(ss) {
+@include media-breakpoint-down(sm) {
     .header {
         &__title {
             font-size: 36px;

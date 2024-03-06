@@ -1,3 +1,6 @@
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
 @import "./colors";
 
 @mixin button {
@@ -53,7 +56,6 @@
         z-index: 1;
     }
 }
-
 @mixin box-shadow-light {
     position: relative;
 
@@ -66,5 +68,17 @@
         bottom: 0;
         box-shadow: inset 0px -55px 10px -5px $white;
         z-index: 1;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .title {
+        font-size: 64px;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .title {
+        font-size: 24px;
     }
 }
