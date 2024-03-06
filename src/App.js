@@ -1,6 +1,7 @@
+import BestUsers from "./Components/bestUsers/BestUsers.js"
 import UploadImage from "./UploadImage.js"
 import TextPhoto from "./Components/about/textPhoto.js"
-import { useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import "./reset.css"
 import { Col, Container, Row, Breadcrumb, Image } from "react-bootstrap"
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -15,8 +16,13 @@ import iphone from "./pngImages/GLOBAL/iphone.png"
 import card from "./pngImages/GLOBAL/card.png"
 import lightTheme from "./pngImages/GLOBAL/lightTheme.png"
 import darkTheme from "./pngImages/GLOBAL/darkTheme.png"
+import buttonPrevWhite from "./pngImages/prevbuttonlight.svg"
+import prevButtonBlack from "./pngImages/GLOBAL/prevbuttondark.svg"
+import Registration from "./Components/registration/Registration.js"
 
 function App() {
+	const inputRef = useRef(null)
+	const [choosedFile, setFile] = useState("")
 	const [theme, setTheme] = useState("light")
 	const [headerInputVal, setHeaderInput] = useState("")
 	const [isLoading, setLoading] = useState(false)
@@ -70,24 +76,34 @@ function App() {
 				heading="Надежные способы оплаты"
 			/>
 			{theme === "light" ? (
-			<TextPhoto
-				text='   Мы понимаем, что ваш онлайн-шопинг должен быть комфортным и приятным. Поэтому мы предлагаем нечто большее, чем просто покупки.
-Наш сайт создан с учетом ваших предпочтений. У нас есть удобная опция смены темы, чтобы вы могли наслаждаться покупками в атмосфере, которая соответствует вашему настроению. Будь то светлая классика для утра или темные оттенки для вечернего шопинга - выбор за вами.
-   Простота в использовании сайта сочетается с приятными цветовыми решениями, чтобы каждое посещение "Quick Buyer" приносило вам удовольствие. Добро пожаловать в мир комфорта и стиля!'
-				imagePath={lightTheme}
-				type="row"
-				heading="Комфорт"
-				isTheme={true}
-			/>
-			) : (			<TextPhoto
-				text='   Мы понимаем, что ваш онлайн-шопинг должен быть комфортным и приятным. Поэтому мы предлагаем нечто большее, чем просто покупки.
-Наш сайт создан с учетом ваших предпочтений. У нас есть удобная опция смены темы, чтобы вы могли наслаждаться покупками в атмосфере, которая соответствует вашему настроению. Будь то светлая классика для утра или темные оттенки для вечернего шопинга - выбор за вами.
-   Простота в использовании сайта сочетается с приятными цветовыми решениями, чтобы каждое посещение "Quick Buyer" приносило вам удовольствие. Добро пожаловать в мир комфорта и стиля!'
-				imagePath={darkTheme}
-				type="row"
-				heading="Комфорт"
-				isTheme={true}
-			/>)}
+				<>
+					<TextPhoto
+						text='   Мы понимаем, что ваш онлайн-шопинг должен быть комфортным и приятным. Поэтому мы предлагаем нечто большее, чем просто покупки.
+	Наш сайт создан с учетом ваших предпочтений. У нас есть удобная опция смены темы, чтобы вы могли наслаждаться покупками в атмосфере, которая соответствует вашему настроению. Будь то светлая классика для утра или темные оттенки для вечернего шопинга - выбор за вами.
+	   Простота в использовании сайта сочетается с приятными цветовыми решениями, чтобы каждое посещение "Quick Buyer" приносило вам удовольствие. Добро пожаловать в мир комфорта и стиля!'
+						imagePath={lightTheme}
+						type="row"
+						heading="Комфорт"
+						isTheme={true}
+					/>
+					<BestUsers arrow={buttonPrevWhite} />
+				</>
+			) : (
+				<>
+					<TextPhoto
+						text='   Мы понимаем, что ваш онлайн-шопинг должен быть комфортным и приятным. Поэтому мы предлагаем нечто большее, чем просто покупки.
+	Наш сайт создан с учетом ваших предпочтений. У нас есть удобная опция смены темы, чтобы вы могли наслаждаться покупками в атмосфере, которая соответствует вашему настроению. Будь то светлая классика для утра или темные оттенки для вечернего шопинга - выбор за вами.
+	   Простота в использовании сайта сочетается с приятными цветовыми решениями, чтобы каждое посещение "Quick Buyer" приносило вам удовольствие. Добро пожаловать в мир комфорта и стиля!'
+						imagePath={darkTheme}
+						type="row"
+						heading="Комфорт"
+						isTheme={true}
+					/>
+
+					<BestUsers arrow={prevButtonBlack} />
+				</>
+			)}
+			<Registration />
 		</div>
 	) : (
 		<div className="App App__loader" id={theme}>
