@@ -19,6 +19,7 @@ import darkTheme from "./pngImages/GLOBAL/darkTheme.png"
 import buttonPrevWhite from "./pngImages/prevbuttonlight.svg"
 import prevButtonBlack from "./pngImages/GLOBAL/prevbuttondark.svg"
 import Registration from "./Components/registration/Registration.js"
+import Footer from "./Components/footer/Footer.js"
 
 function App() {
 	const inputRef = useRef(null)
@@ -26,6 +27,7 @@ function App() {
 	const [theme, setTheme] = useState("light")
 	const [headerInputVal, setHeaderInput] = useState("")
 	const [isLoading, setLoading] = useState(false)
+
 	const swithTheme = () => {
 		setTheme((cur) => (cur === "light" ? "dark" : "light"))
 		setLoading(true)
@@ -104,6 +106,7 @@ function App() {
 				</>
 			)}
 			<Registration />
+			<Footer />
 		</div>
 	) : (
 		<div className="App App__loader" id={theme}>
